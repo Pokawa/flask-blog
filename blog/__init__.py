@@ -1,5 +1,5 @@
 from flask import Flask
-from .ext import db
+from .utilities import db
 from .blog import blueprint
 
 

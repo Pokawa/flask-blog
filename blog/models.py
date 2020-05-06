@@ -1,4 +1,4 @@
-from .ext import db
+from .utilities import db
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
