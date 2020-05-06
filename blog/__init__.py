@@ -1,6 +1,6 @@
 from flask import Flask
 from .utilities import db
-from .blog import blueprint
+from .blog import blueprint as blog_blueprint
 
 
 def create_app(config='config.py'):
@@ -8,6 +8,6 @@ def create_app(config='config.py'):
     app.config.from_pyfile(config, silent=True)
     db.init_app(app)
 
-    app.register_blueprint(blog.blueprint)
+    app.register_blueprint(blog_blueprint)
 
     return app
