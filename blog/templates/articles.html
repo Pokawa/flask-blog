@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+{{ super() }}
+
+{% for article in articles %}
+<h1>{{ article.title }}</h1>
+<p>{{ article.lead }}</p>
+{% endfor %}
+
+{% endblock %}

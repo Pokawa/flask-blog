@@ -1,7 +1,7 @@
 from .models import User
 from .forms import LoginForm
 from .utilities import login_manager
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, login_required
 from flask import Blueprint, render_template, redirect, url_for
 
 blueprint = Blueprint('auth', __name__)
@@ -23,6 +23,7 @@ def login():
     return render_template('login.html', form=form)
 
 @blueprint.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('blog'))
