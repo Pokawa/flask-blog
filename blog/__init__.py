@@ -3,7 +3,6 @@ from .utilities import database, login_manager
 from .blog import blueprint as blog_blueprint
 from .auth import blueprint as auth_blueprint
 from .editorial import blueprint as editorial_blueprint
-from flask_bootstrap import Bootstrap
 
 
 def create_app(config='config.py'):
@@ -12,8 +11,6 @@ def create_app(config='config.py'):
 
     database.init_app(app)
     login_manager.init_app(app)
-
-    Bootstrap(app)
 
     app.register_blueprint(blog_blueprint)
     app.register_blueprint(auth_blueprint)
