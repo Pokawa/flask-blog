@@ -6,9 +6,11 @@ from flask import Blueprint, render_template, redirect, url_for
 
 blueprint = Blueprint('auth', __name__)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
+
 
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
@@ -21,6 +23,7 @@ def login():
             return redirect(url_for('editorial.board'))
 
     return render_template('login.html', form=form)
+
 
 @blueprint.route('/logout')
 @login_required
