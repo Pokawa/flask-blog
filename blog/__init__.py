@@ -1,5 +1,5 @@
 from flask import Flask
-from .utilities import database, login_manager, nav
+from .utilities import database, login_manager
 from .blog import blueprint as blog_blueprint
 from .auth import blueprint as auth_blueprint
 from .editorial import blueprint as editorial_blueprint
@@ -12,7 +12,6 @@ def create_app(config='config.py'):
 
     database.init_app(app)
     login_manager.init_app(app)
-    nav.init_app(app)
 
     Bootstrap(app)
 
